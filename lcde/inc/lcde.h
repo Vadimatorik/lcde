@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QWidget>
+#include <QUdpSocket>
 
 #include "mono_lcd.h"
 
@@ -23,6 +24,20 @@ private slots:
     void socket_port_spi_slot ();
 
 private:
-    mono_lcd *lcd;
+    void get_pin_state (QUdpSocket *udp, bool& var);
+
+private:
+    QUdpSocket *udp_socket_cs = nullptr;
+    QUdpSocket *udp_socket_dc = nullptr;
+    QUdpSocket *udp_socket_rst = nullptr;
+    QUdpSocket *udp_socket_spi = nullptr;
+
+private:
+    bool cs = false;
+    bool rst = false;
+    bool dc = false;
+
+private:
+    mono_lcd *lcd = nullptr;
 
 };
