@@ -17,7 +17,7 @@ mono_lcd::mono_lcd (QColor back_color, QColor pix_color,
 }
 
 void mono_lcd::clean () {
-
+    memset(this->state, 0, sizeof(bool)*this->x_pix_num*this->y_pix_num);
 }
 
 void mono_lcd::paintEvent (QPaintEvent *event) {
