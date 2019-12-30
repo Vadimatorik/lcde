@@ -15,12 +15,13 @@ public:
 public:
     void clean ();
     int set_point (uint8_t x, uint8_t y);
+    int reset_point (uint8_t x, uint8_t y);
 
 protected:
     void paintEvent (QPaintEvent *event);
 
 private:
-    bool *state;
+    bool **state;
     uint8_t x_pix_num = 0;
     uint8_t y_pix_num = 0;
     float proc_ind = 0;
