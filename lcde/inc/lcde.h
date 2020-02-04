@@ -10,11 +10,15 @@
 
 #include "mono_lcd.h"
 
+struct lcde_cfg {
+    uint16_t port;
+};
+
 class lcde : public QWidget {
 Q_OBJECT
 
 public:
-    explicit lcde (QWidget *parent = nullptr);
+    explicit lcde (QWidget *parent, lcde_cfg *cfg);
 
 private slots:
     void new_connection ();
